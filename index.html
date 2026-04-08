@@ -1,17 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Movie Watchlist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Watchlist | Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
 
-<h1>🎬 Movie Watchlist</h1>
+    <header class="navbar">
+        <div class="logo">🎬 <span>MovieFlix</span></div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for movies...">
+        </div>
+        <button id="themeToggle" class="btn-icon" title="Toggle Theme">☀️</button>
+    </header>
 
-<div id="loading">Loading movies...</div>
+    <main class="container">
+        
+        <section class="controls">
+            <div class="filter-group">
+                <label for="filterRating">Filter Rating:</label>
+                <select id="filterRating">
+                    <option value="0">All Ratings</option>
+                    <option value="8">8.0 & Above</option>
+                    <option value="6">6.0 & Above</option>
+                    <option value="favorite">Favorites Only</option>
+                </select>
+            </div>
+            
+            <div class="sort-group">
+                <label for="sortMovies">Sort By:</label>
+                <select id="sortMovies">
+                    <option value="default">Default</option>
+                    <option value="ratingDesc">Rating: High to Low</option>
+                    <option value="ratingAsc">Rating: Low to High</option>
+                    <option value="titleAsc">Title: A-Z</option>
+                    <option value="titleDesc">Title: Z-A</option>
+                </select>
+            </div>
+        </section>
 
-<div id="movies" class="movie-container"></div>
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Loading magic...</p>
+        </div>
 
-<script src="script.js"></script>
+        <section id="movies" class="movie-grid"></section>
+        
+        <div id="loadMoreContainer" class="hidden">
+            <button id="loadMoreBtn" class="btn-primary">Load More Movies</button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
